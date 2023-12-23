@@ -1,0 +1,10 @@
+.button {
+  background: #9d564c94;
+  font-weight: bold;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+}

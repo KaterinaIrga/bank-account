@@ -1,0 +1,63 @@
+<!DOCTYPE html >
+<html lang="ru"></html>
+<head> 
+  <title>Баланс</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="author" content="Evlanova Kate"/>
+  <link rel="stylesheet" href="./bundle.css"/>
+</head>
+<body class="page">
+  <header class="header"> 
+    <h1 class="title">Баланс</h1>
+  </header>
+  <main class="main"> 
+    <table class="table" style="width:100%" border="1">
+      <thead class="table__header"> 
+        <tr>
+          <th class="table__column-header">Id </th>
+          <th class="table__column-header">Баланс</th>
+        </tr>
+      </thead>
+      <tbody class="table__body">
+                <tr class="table__row" id="row100">
+                  <td class="table__field" id="id100">100</td>
+                  <td class="table__field" id="balance100">22</td>
+                </tr>
+                <tr class="table__row" id="row200">
+                  <td class="table__field" id="id200">200</td>
+                  <td class="table__field" id="balance200">0</td>
+                </tr>
+                <tr class="table__row" id="row300">
+                  <td class="table__field" id="id300">300</td>
+                  <td class="table__field" id="balance300">10</td>
+                </tr>
+      </tbody>
+    </table>
+    <form class="form" id="form">
+      <div class="form__element">
+        <label class="form__label" for="idTo">Id получателя:</label>
+        <input class="form__input" type="text" name="idTo" required="required" id="idTo-input" placeholder="Введите Id"/>
+      </div>
+      <div class="form__element">
+        <label class="form__label" for="summ">Сумма:</label>
+        <input class="form__input" type="number" name="summ" required="required" id="summ-input" placeholder="Введите сумму"/>
+      </div>
+      <div class="form__element">
+        <label class="form__label" for="idFrom">Id отправителя:</label>
+        <input class="form__input" type="text" name="idFrom" required="required" id="idFrom-input" placeholder="Введите Id"/>
+      </div>
+      <div class="button-panel">
+        <button class="button" type="button" id="add">Начислить сумму</button>
+        <button class="button" type="button" id="reduce">Списать сумму</button>
+        <button class="button" type="button" id="transfer">Перевести сумму</button>
+        <button class="button" type="button" id="show">Показать баланс</button>
+      </div>
+    </form>
+    <dialog class="dialog">
+      <p class="dialog__value" id="dialog__value"></p>
+      <button class="button dialog__button" type="button" onclick="window.dialog.close()"> Ok</button>
+    </dialog>
+  </main>
+  <script src="./bundle.js"></script>
+</body>

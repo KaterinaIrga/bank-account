@@ -1,0 +1,52 @@
+block variables 
+
+  -
+    var tableRows = [
+      {'id': '100', 'fBalance': '22'},
+      {'id': '200', 'fBalance': '0'},
+      {'id': '300', 'fBalance': '10'}
+    ]
+
+doctype html 
+html(lang="ru")
+head 
+  title Баланс
+  meta(charset="utf-8")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  meta(name="author", content="Evlanova Kate")
+  link(rel="stylesheet" href="./bundle.css")
+  
+body.page
+  header.header 
+    h1.title Баланс
+
+  main.main 
+    table.table(style='width:100%', border='1')
+      thead.table__header 
+        tr
+          th.table__column-header Id 
+          th.table__column-header Баланс
+      tbody.table__body
+        include ../mixins/table/tableRow
+        each row in tableRows
+          +tableRow(row.id, row.fBalance)
+    form.form(id="form")
+      div.form__element
+        label.form__label(for="idTo") Id получателя:
+        input.form__input(type="text" name="idTo" required id="idTo-input" placeholder="Введите Id")
+      div.form__element
+        label.form__label(for="summ") Сумма:
+        input.form__input(type="number" name="summ" required id="summ-input" placeholder="Введите сумму")
+      div.form__element
+        label.form__label(for="idFrom") Id отправителя:
+        input.form__input(type="text" name="idFrom" required id="idFrom-input" placeholder="Введите Id")
+      div.button-panel
+        button.button(type="button" id="add") Начислить сумму
+        button.button(type="button"  id="reduce") Списать сумму
+        button.button(type="button"  id="transfer") Перевести сумму
+        button.button(type="button"  id="show") Показать баланс
+    dialog.dialog
+      p.dialog__value(id="dialog__value")
+      button.button.dialog__button(type="button" onclick="window.dialog.close()")  Ok
+  script(src="./bundle.js")
+
